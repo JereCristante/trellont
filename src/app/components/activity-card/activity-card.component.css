@@ -1,0 +1,41 @@
+.activity-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+    transition: transform 0.2s;
+  }
+
+  .activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .activity-card .header p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #0F084B;
+    font-style: normal;
+  }
+
+  .activity-card .header p.title {
+    font-weight: bold;
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .activity-card .header p.state {
+    color: #09814A;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .activity-card .header p.end-date {
+    font-weight: bold;
+    color: #d9534f;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .activity-card .description {
+    padding-top: 0.5rem;
+    color: #0F084B;
+    font-family: 'Poppins', sans-serif;
+  }

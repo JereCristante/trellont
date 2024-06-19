@@ -1,0 +1,28 @@
+.board-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.2s; 
+  }
+
+  .board-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
+  }
+
+  .board-card p {
+    margin: 0.5rem 0;
+    font-size: 1rem; 
+    font-family: 'Poppins', sans-serif;
+    color: #0F084B;
+    font-style: normal;
+  }
+
+  .board-card p.board-name {
+    font-weight: bold; 
+    font-size: 1.1rem; 
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .board-card p.team-name {
+    color: #09814A; 
+    font-family: 'Poppins', sans-serif;
+  }
