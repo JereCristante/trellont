@@ -11,11 +11,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "outputPath": "dist/trellont",
             "index": "src/index.html",
-            "browser": "src/main.ts",
+            "main": "src/main.single-spa.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -30,11 +30,18 @@
               "src/styles.css"
             ],
             "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+           // "server": "src/main.server.ts",
+           // "prerender": true,
+           // "ssr": {
+           //   "entry": "server.ts"
+           // },
+            
+            "customWebpackConfig": {
+              "path": "extra-webpack.config.js",
+              "libraryName": "trellont",
+              "libraryTarget": "umd"
+            },
+            "deployUrl": "http://localhost:4201/"
           },
           "configurations": {
             "production": {
@@ -50,12 +57,13 @@
                   "maximumError": "4kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "none"
             },
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "outputHashing": "none"
             }
           },
           "defaultConfiguration": "production"

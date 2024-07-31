@@ -1,8 +1,8 @@
-<div class="bg-[#EBF5EE] flex flex-col lg:flex-row space-x-0 lg:space-x-4 min-h-full min-w-screen items-start p-4">
+<div class="bg-[#EBF5EE] flex flex-col lg:flex-row space-x-0 lg:space-x-4 min-h-screen min-w-screen items-start p-4 mt-4">
     <div class="flex flex-col lg:flex-row space-x-0 lg:space-x-4 w-full lg:m-7 md:m-5 min-h-full min-w-screen items-center lg:items-start ">
-        <div class="flex-1 w-full justify-items-center mb-4 lg:mb-0 max-w-lg">
+        <div class="flex-1 w-full justify-items-center max-w-full">
             <p class="text-center">Tableros</p>
-            <div class="container flex-1 min-w-max bg-[#09814A] justify-center rounded-lg p-4 shadow-lg overflow-y-auto max-h-[90vh]" id="boards">
+            <div class="container flex-1 min-w-max bg-[#09814A] justify-center rounded-lg p-4 shadow-lg overflow-y-auto min-h-[80vh] max-h-[80vh]" id="boards">
                 <button class="bg-[#26408B] rounded-lg text-white m-5 p-2">Nuevo</button>
                 <div class="bg-[#09814A] rounded-lg items-center min-w-max pt-1 pb-1">
                     @for (board of filteredBoards; track board._id; let index = $index) {
@@ -11,17 +11,17 @@
                 </div>
             </div>
         </div>
-        <div class="flex-1 justify-center mb-4 lg:mb-0 max-w-lg">
+        <div class="flex-1 w-full justify-items-center max-w-full">
             <p class="text-center">Actividades</p>
-            <div class="container bg-[#09814A] rounded-lg items-center w-max pt-1 pb-1 p-4 shadow-lg overflow-y-auto max-h-[45vh]">
+            <div class="container bg-[#09814A] rounded-lg items-center w-max pt-1 pb-1 p-4 shadow-lg overflow-y-auto min-h-[80vh] max-h-[80vh] ">
                 @for (activity of filteredActivities; track activity._id; let index = $index) {
                     <activity-card [activity]="activity"/>
                 }
             </div>
         </div>
-        <div class="flex-1 justify-center max-w-lg">
+        <div class="flex-1 w-full justify-items-center max-w-full">
             <p class="text-center">Notificaciones</p>
-            <div class="container bg-[#09814A] rounded-lg items-center w-max pt-1 pb-1 p-4 shadow-lg overflow-y-auto max-h-[30vh]" id="notifications">
+            <div class="container bg-[#09814A] rounded-lg items-center w-max pt-1 pb-1 p-4 shadow-lg overflow-y-auto min-h-[80vh] max-h-[80vh]" id="notifications">
                 @for (notif of filteredNotifications; track notif._id; let index = $index) {
                     <notif-card [notification]="notif"/>
                 }
