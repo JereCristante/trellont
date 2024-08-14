@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { Activity } from '../../interfaces/Activity';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'activity-card',
   standalone: true,
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './activity-card.component.html',
   styleUrl: './activity-card.component.css'
 })
@@ -14,7 +15,10 @@ export class ActivityCardComponent {
     title: '',
     description: '',
     state: '',
-    end_date: '',
-    board_id: ''
+    list_id: {_id: '',
+      name: '',
+      team_id: '',
+      team_name: '',
+      description:''}
   }
 }

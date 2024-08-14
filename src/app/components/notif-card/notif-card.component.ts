@@ -11,6 +11,7 @@ import { Notification } from '../../interfaces/Notification';
 export class NotifCardComponent {
   @Input({ required: true }) notification: Notification = {
     _id: '',
-    description: ''
+    description: '',
+    title: ''
   }
 }
