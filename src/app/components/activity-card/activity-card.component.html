@@ -1,8 +1,8 @@
-<div class="flex-wrap content-between bg-[#EBF5EE] min-h-16 m-3 p-3 lg:min-w-max rounded-lg activity-card">
+<div class="flex-wrap content-between bg-[#EBF5EE] min-h-16 m-3 p-3 lg:min-w-max  rounded-lg activity-card ">
     <div class="flex justify-between min-h-20 lg:min-w-max header items-start">
             <p class="flex-1 title"><b>{{activity.title}}</b></p>
-            <p class="flex-1 state">{{activity.state}}</p>
-            <p class="flex-1 end-date"><b>{{activity.end_date}}</b></p>
+            <p class="flex-1 state">{{activity.list_id.name}}</p>
+            <p class="flex-1 end-date"><b>{{activity.createdAt| date}}</b></p>
     </div>
-    <div class="content-end description"><p>{{activity.description}}</p></div>
+    <div class="content-end description max-w-[30vw]"><p>{{activity.description}}</p></div>
 </div>

@@ -13,6 +13,7 @@ export class BoardCardComponent {
     _id: '',
     name: '',
     team_id: '',
-    team_name: ''
+    team_name: '',
+    description:''
   }
 }
