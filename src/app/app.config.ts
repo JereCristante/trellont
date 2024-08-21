@@ -1,11 +1,15 @@
-import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
+import { provideRouter, withHashLocation } from '@angular/router';
 
 import { routes } from './app.routes';
-import { provideClientHydration } from '@angular/platform-browser';
-import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
-
+import { getSingleSpaExtraProviders } from 'single-spa-angular';
+import { APP_BASE_HREF } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), 
-    provideHttpClient(withInterceptorsFromDi(),withFetch()),provideRouter(routes), provideClientHydration()]
+  providers: [
+    { provide: APP_BASE_HREF, useValue: '/' },
+    getSingleSpaExtraProviders(),
+    importProvidersFrom(HttpClientModule),
+    provideRouter(routes, withHashLocation())
+  ],
 };

@@ -10,11 +10,12 @@ import { BoardService } from '../../Services/board.service';
 import { CardService } from '../../Services/card.service';
 import { ActivitesService } from '../../Services/activites.service';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule,RouterModule,BoardCardComponent,NotifCardComponent,ActivityCardComponent],
+  imports: [CommonModule,RouterModule,BoardCardComponent,NotifCardComponent,ActivityCardComponent,FormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -60,7 +61,7 @@ export class HomeComponent {
   Breaload = this.Bservice.getReload();
   Creaload = this.Bservice.getReload();
   Areaload = this.Bservice.getReload();
-
+  newBoard: Board={name:'',description:''}
   showModal = false;
   toggleModal(){
     this.showModal = !this.showModal;
@@ -75,7 +76,7 @@ export class HomeComponent {
       );
       this.Creaload();
       this.Cservice.readAll().subscribe(
-        (response) => (this.filteredActivities = response.response),
+        (response) => (this.filteredActivities = response.response, console.log(response)),
         (error) => alert(error.error.message)
       );
       this.Areaload();
@@ -85,6 +86,19 @@ export class HomeComponent {
       );
     });
   }
+
+  create = (): void => {
+    this.Bservice.create(this.newBoard).subscribe(
+      (response) => {
+        alert(response.message);
+        this.newBoard = { name: '', description: '' };
+        this.toggleModal();
+        this.Bservice.setReload();
+      },
+      (error) => alert(error.error.message)
+    );
+  };
+
 
 
 }
